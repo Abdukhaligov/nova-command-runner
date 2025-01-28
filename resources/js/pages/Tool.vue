@@ -28,7 +28,7 @@
             />
 
             <Button @click="runCustomCommand">
-                {{ __("Run") }}
+                Run
             </Button>
         </div>
 
@@ -41,7 +41,7 @@
                 :key="index"
             >
                 <div class="text-sm font-semibold">
-                    {{ group ? group : __("Unnamed group") }}
+                    {{ group ? group : "Unnamed group" }}
                 </div>
                 <template v-for="(command, index) in commands">
                     <Button
@@ -59,7 +59,7 @@
         <div
             class="flex flex-col md:flex-row md:items-center justify-between mt-6 mb-6"
         >
-            <div class="font-bold">{{ __("History") }}</div>
+            <div class="font-bold">History</div>
 
             <div
                 class="md:ml-2 inline-flex items-center shadow rounded-lg bg-white dark:bg-gray-800 px-2 h-8"
@@ -68,7 +68,7 @@
                     @click.prevent="getData"
                     :loading="loading"
                     type="refresh"
-                    :title="__('Refresh')"
+                    title="Refresh"
                 />
 
                 <ToolbarButton
@@ -79,14 +79,14 @@
                     }"
                     type="clock"
                     class="w-8 h-8"
-                    :title="__('Polling')"
+                    title="Polling"
                 />
 
                 <ToolbarButton
                     @click.prevent="clearHistory"
                     type="trash"
                     class="text-red-500"
-                    :title="__('Clear history')"
+                    title="Clear history"
                 />
             </div>
         </div>
@@ -103,37 +103,37 @@
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Command") }}
+                            Command
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Type") }}
+                            Type
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Run By") }}
+                            Run By
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Status") }}
+                            Status
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Result") }}
+                            Result
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Duration") }}
+                            Duration
                         </th>
                         <th
                             class="text-center px-2 whitespace-nowrap uppercase text-gray-500 text-xxs tracking-wide py-2"
                         >
-                            {{ __("Happened") }}
+                            Happened
                         </th>
                     </tr>
                 </thead>
@@ -194,7 +194,7 @@
                 ></Icon>
 
                 <h3 class="text-base font-normal mt-3">
-                    {{ __("No Logs.") }}
+                    No Logs.
                 </h3>
             </div>
         </div>
@@ -284,7 +284,7 @@
 
                 <div class="flex items-center space-x-3 mt-5">
                     <Button theme="gray" @click.prevent="closeModal">
-                        {{ __("Cancel") }}
+                        Cancel
                     </Button>
 
                     <Button
@@ -302,11 +302,9 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useLocalization } from "LaravelNova";
 import Button from "../components/Button.vue";
 import ToolbarButton from "../components/ToolbarButton.vue";
 
-const { __ } = useLocalization()
 const loading = ref(false);
 const playing = ref(false);
 const running = ref(false);
@@ -386,9 +384,9 @@ function setupInterval() {
 
 function clearHistory() {
     openModal({
-        label: __("Clear Command Run History"),
+        label: "Clear Command Run History",
         type: "primary",
-        help: __("Are you sure you want to clear the command run history?"),
+        help: "Are you sure you want to clear the command run history?",
         command_type: "artisan",
         command: "cache:forget nova-command-runner-history",
         variables: [],
@@ -483,9 +481,9 @@ function runCustomCommand() {
     }
 
     openModal({
-        label: __("Custom Command"),
+        label: "Custom Command",
         type: "primary",
-        help: __("Are you sure you want to run this command?"),
+        help: "Are you sure you want to run this command?",
         command_type: customCommandType.value,
         command: customCommand.value,
         variables: [],
