@@ -1,9 +1,5 @@
 # Release Notes
 
-## [4.4.0](#)
-- Added `Stepanenko3\NovaCommandRunner\Traits\RunsArtisan`
-- Update `run_by` assignment to use the `getArtisanRunByName` method
-
 ## [4.1.0](#)
 - `Stepanenko3\NovaCommandRunner\CommandRunner` migrate to `Stepanenko3\NovaCommandRunner\CommandRunnerTool`
 
